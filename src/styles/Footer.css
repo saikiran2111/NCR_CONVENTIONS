@@ -1,0 +1,139 @@
+.footer {
+    display: flex; 
+    flex-direction: column; 
+    background-color: #f2f0e2; 
+    padding: 20px 0; 
+    width: 100vw; 
+    margin: 0; 
+}
+
+.footer-content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+.footer-left {
+    width: 40%; 
+    text-align: left; 
+}
+
+.footer-left h3 {
+    font-size: 28px; 
+    color: #000; 
+    margin-bottom: 15px; 
+}
+
+.footer-left p {
+    font-size: 18px; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.footer-left .social-media {
+    margin-top: 10px; 
+}
+
+.footer-left .social-media a {
+    margin-right: 15px; 
+    color: #000; 
+    text-decoration: none; 
+}
+
+.footer-left .social-media a:hover {
+    text-decoration: underline; 
+}
+
+.footer-right {
+    width: 60%; 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.footer-right iframe {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.footer-bottom {
+    text-align: center; 
+    margin-top: 10px; 
+}
+
+.footer-bottom p {
+    font-size: 14px; 
+    color: #666; 
+}
+
+
+
+
+
+@media screen and (max-width: 480px){
+    .footer {
+        background-color: #fff; 
+        padding: 10px 10px;
+        height: 100%; 
+        border: 1px solid yellow;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        justify-content: space-evenly; 
+        padding: 0;
+        margin-top: 30px; 
+    }
+
+    .footer-left {
+        width: 100%; 
+    }
+    
+    .footer-left h3 {
+        font-size: 20px; 
+        margin-bottom: 10px; 
+    }
+    
+    .footer-left p {
+        font-size: 16px;  
+    }
+    
+    .footer-left .social-media {
+        margin-top: 5px; 
+    }
+    
+    .footer-left .social-media a {
+        margin-right: 10px;  
+    }
+    
+    .footer-left .social-media a:hover {
+        text-decoration: underline; 
+    }
+
+
+    .footer-right {
+        width: 100%; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        margin-top: 90px;
+    }
+    
+    .footer-right iframe {
+        max-width: 90%; 
+        height: auto; 
+    }
+    
+    .footer-bottom {
+        text-align: center; 
+        margin-top: 10px; 
+    }
+    
+    .footer-bottom p {
+        font-size: 12px; 
+        color: #666; 
+        margin-top: 15px;
+    }
+
+}
