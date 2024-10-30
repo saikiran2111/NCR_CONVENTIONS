@@ -8,6 +8,8 @@ function Contact() {
         phone: '',
         place: '',
     });
+    const [isLoading, setIsLoading] = useState(false); // State for loading indicator
+    const [message, setMessage] = useState(''); // State for success or failure message
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,19 +21,28 @@ function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true); // Show loader
+        setMessage(''); // Clear any previous message
 
-        const response = await fetch('http://localhost:5000/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
+        try {
+            const response = await fetch('http://localhost:5000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-        if (response.ok) {
-            alert('Email sent successfully!');
-        } else {
-            alert('Failed to send email.');
+            if (response.ok) {
+                setMessage('Email sent successfully!');
+            } else {
+                setMessage('Failed to send email.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setMessage('An error occurred. Please try again.');
+        } finally {
+            setIsLoading(false); // Hide loader
         }
     };
 
@@ -58,12 +69,14 @@ function Contact() {
                         <label htmlFor="place">Place:</label>
                         <input type="text" id="place" name="place" value={formData.place} onChange={handleChange} required />
                         
-                        <button type="submit">Submit</button>
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? 'Sending...' : 'Submit'}
+                        </button>
                     </form>
+                    {message && <p>{message}</p>}
                 </div>
             </div>
         </section>
-        
     );
 }
 
